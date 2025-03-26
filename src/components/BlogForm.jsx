@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 const BlogForm = ({ onSave, currentBlog }) => {
   const [author, setAuthor] = useState("");
@@ -55,10 +57,12 @@ const BlogForm = ({ onSave, currentBlog }) => {
         <label className="block text-primary text-sm font-bold mb-2">
           Description
         </label>
-        <textarea
-          className="w-full px-3 py-2 border rounded"
+        <ReactQuill
+          theme="snow"
           value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          onChange={setDescription}
+          style={{ height: "300px", marginBottom: "60px" }}
+          placeholder="Write your blog content here..."
         />
       </div>
       <div className="mb-4">
