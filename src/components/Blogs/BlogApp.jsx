@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import BlogList from "./BlogList";
 import BlogForm from "./BlogForm";
-import BlogDataService from "../services/BlogDataService";
+import BlogDataService from "../../services/BlogDataService";
 
 const BlogApp = () => {
   const [blogs, setBlogs] = useState([]);
@@ -29,7 +29,6 @@ const BlogApp = () => {
       if (currentBlog) {
         await BlogDataService.updateBlog(currentBlog.id, blog);
       } else {
-        console.log("add method called");
         await BlogDataService.addBlog(blog);
       }
       getBlogs();
